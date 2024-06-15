@@ -1,14 +1,30 @@
-﻿namespace commandline;
+﻿using System.CommandLine;
+
+namespace mcy.CommandLine;
 
 class Program
 {
-    static void Main(string[] args)
+    static async Task<int> Main(string[] args)
     {
-        Console.WriteLine("What is your name?");
-        var name = Console.ReadLine();
-        var currentDate = DateTime.Now;
-        Console.WriteLine($"{Environment.NewLine}Hello, {name}, on {currentDate:d} at {currentDate:t}!");
-        Console.Write($"{Environment.NewLine}Press any key to exit...");
-        Console.Read();
+        var fileOption = new Option<FileInfo?>(
+            name: "--file",
+            description: "The file to read and display on the console.");
+
+        var rootCommand = new RootCommand("Sample app for System.CommandLine");
+        rootCommand.AddOption(fileOption);
+
+        rootCommand.SetHandler((file) => 
+            { 
+                ReadFile(file!); 
+            },
+            fileOption);
+
+        return await rootCommand.InvokeAsync(args);
+    }
+
+    static void ReadFile(FileInfo file)
+    {
+        File.ReadLines(file.FullName).ToList()
+            .ForEach(line => Console.WriteLine(line));
     }
 }
