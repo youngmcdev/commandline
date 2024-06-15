@@ -5,10 +5,23 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <Version>24.06.14.00</Version>
+    <AssemblyVersion>24.06.14.00</AssemblyVersion>
+    <FileVersion>24.06.14.00</FileVersion>
+    <Company></Company>
+    <Authors></Authors>
+    <Product>Command Line</Product>
+    <Description />
+    <Copyright>Copyright © 2024</Copyright>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="System.Commandline" Version="2.0.0-beta4.22272.1" />
   </ItemGroup>
-
+  
+  <ItemGroup>
+    <Content Include="sample-quotes.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
 </Project>
