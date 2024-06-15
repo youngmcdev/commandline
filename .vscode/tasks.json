@@ -1,0 +1,13 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "dotnet",
+			"task": "build c:\\repos\\commandline\\commandline.csproj",
+			"file": "c:\\repos\\commandline\\commandline.csproj",
+			"group": "build",
+			"problemMatcher": [],
+			"label": "dotnet: build c:\\repos\\commandline\\commandline.csproj"
+		}
+	]
+}
